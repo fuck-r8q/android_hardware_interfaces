@@ -37,4 +37,5 @@ enum ChannelMode {
   UNKNOWN = 0,
   MONO = 1,
   STEREO = 2,
+  DUALMONO = 3,
 }
