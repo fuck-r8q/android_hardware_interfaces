@@ -35,11 +35,11 @@ package android.hardware.gnss.gnss_assistance;
 /* @hide */
 @VintfStability
 parcelable GnssAssistance {
-  android.hardware.gnss.gnss_assistance.GnssAssistance.GpsAssistance gpsAssistance;
-  android.hardware.gnss.gnss_assistance.GnssAssistance.GlonassAssistance glonassAssistance;
-  android.hardware.gnss.gnss_assistance.GnssAssistance.GalileoAssistance galileoAssistance;
-  android.hardware.gnss.gnss_assistance.GnssAssistance.BeidouAssistance beidouAssistance;
-  android.hardware.gnss.gnss_assistance.GnssAssistance.QzssAssistance qzssAssistance;
+  @nullable android.hardware.gnss.gnss_assistance.GnssAssistance.GpsAssistance gpsAssistance;
+  @nullable android.hardware.gnss.gnss_assistance.GnssAssistance.GlonassAssistance glonassAssistance;
+  @nullable android.hardware.gnss.gnss_assistance.GnssAssistance.GalileoAssistance galileoAssistance;
+  @nullable android.hardware.gnss.gnss_assistance.GnssAssistance.BeidouAssistance beidouAssistance;
+  @nullable android.hardware.gnss.gnss_assistance.GnssAssistance.QzssAssistance qzssAssistance;
   @VintfStability
   parcelable GnssSatelliteCorrections {
     int svid;
@@ -47,59 +47,80 @@ parcelable GnssAssistance {
   }
   @VintfStability
   parcelable GpsAssistance {
-    android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
-    android.hardware.gnss.gnss_assistance.KlobucharIonosphericModel ionosphericModel;
-    android.hardware.gnss.gnss_assistance.UtcModel utcModel;
-    android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
+    @nullable android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
+    @nullable android.hardware.gnss.gnss_assistance.KlobucharIonosphericModel ionosphericModel;
+    @nullable android.hardware.gnss.gnss_assistance.UtcModel utcModel;
+    @nullable android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
     android.hardware.gnss.gnss_assistance.TimeModel[] timeModels;
     android.hardware.gnss.gnss_assistance.GpsSatelliteEphemeris[] satelliteEphemeris;
     android.hardware.gnss.gnss_assistance.RealTimeIntegrityModel[] realTimeIntegrityModels;
     android.hardware.gnss.gnss_assistance.GnssAssistance.GnssSatelliteCorrections[] satelliteCorrections;
+    /**
+     * @deprecated use auxiliaryInformations
+     */
     android.hardware.gnss.gnss_assistance.AuxiliaryInformation auxiliaryInformation;
+    android.hardware.gnss.gnss_assistance.AuxiliaryInformation[] auxiliaryInformations = {};
   }
   @VintfStability
   parcelable GalileoAssistance {
-    android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
-    android.hardware.gnss.gnss_assistance.GalileoIonosphericModel ionosphericModel;
-    android.hardware.gnss.gnss_assistance.UtcModel utcModel;
-    android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
+    @nullable android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
+    @nullable android.hardware.gnss.gnss_assistance.GalileoIonosphericModel ionosphericModel;
+    @nullable android.hardware.gnss.gnss_assistance.UtcModel utcModel;
+    @nullable android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
     android.hardware.gnss.gnss_assistance.TimeModel[] timeModels;
     android.hardware.gnss.gnss_assistance.GalileoSatelliteEphemeris[] satelliteEphemeris;
     android.hardware.gnss.gnss_assistance.RealTimeIntegrityModel[] realTimeIntegrityModels;
     android.hardware.gnss.gnss_assistance.GnssAssistance.GnssSatelliteCorrections[] satelliteCorrections;
+    /**
+     * @deprecated use auxiliaryInformations
+     */
     android.hardware.gnss.gnss_assistance.AuxiliaryInformation auxiliaryInformation;
+    android.hardware.gnss.gnss_assistance.AuxiliaryInformation[] auxiliaryInformations = {};
   }
   @VintfStability
   parcelable GlonassAssistance {
-    android.hardware.gnss.gnss_assistance.GlonassAlmanac almanac;
-    android.hardware.gnss.gnss_assistance.UtcModel utcModel;
+    @nullable android.hardware.gnss.gnss_assistance.GlonassAlmanac almanac;
+    @nullable android.hardware.gnss.gnss_assistance.UtcModel utcModel;
     android.hardware.gnss.gnss_assistance.TimeModel[] timeModels;
     android.hardware.gnss.gnss_assistance.GlonassSatelliteEphemeris[] satelliteEphemeris;
     android.hardware.gnss.gnss_assistance.GnssAssistance.GnssSatelliteCorrections[] satelliteCorrections;
+    /**
+     * @deprecated use auxiliaryInformations
+     */
     android.hardware.gnss.gnss_assistance.AuxiliaryInformation auxiliaryInformation;
+    android.hardware.gnss.gnss_assistance.RealTimeIntegrityModel[] realTimeIntegrityModels = {};
+    android.hardware.gnss.gnss_assistance.AuxiliaryInformation[] auxiliaryInformations = {};
   }
   @VintfStability
   parcelable QzssAssistance {
-    android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
-    android.hardware.gnss.gnss_assistance.KlobucharIonosphericModel ionosphericModel;
-    android.hardware.gnss.gnss_assistance.UtcModel utcModel;
-    android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
+    @nullable android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
+    @nullable android.hardware.gnss.gnss_assistance.KlobucharIonosphericModel ionosphericModel;
+    @nullable android.hardware.gnss.gnss_assistance.UtcModel utcModel;
+    @nullable android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
     android.hardware.gnss.gnss_assistance.TimeModel[] timeModels;
     android.hardware.gnss.gnss_assistance.QzssSatelliteEphemeris[] satelliteEphemeris;
     android.hardware.gnss.gnss_assistance.RealTimeIntegrityModel[] realTimeIntegrityModels;
     android.hardware.gnss.gnss_assistance.GnssAssistance.GnssSatelliteCorrections[] satelliteCorrections;
+    /**
+     * @deprecated use auxiliaryInformations
+     */
     android.hardware.gnss.gnss_assistance.AuxiliaryInformation auxiliaryInformation;
+    android.hardware.gnss.gnss_assistance.AuxiliaryInformation[] auxiliaryInformations = {};
   }
   @VintfStability
   parcelable BeidouAssistance {
-    android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
-    android.hardware.gnss.gnss_assistance.KlobucharIonosphericModel ionosphericModel;
-    android.hardware.gnss.gnss_assistance.UtcModel utcModel;
-    android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
+    @nullable android.hardware.gnss.gnss_assistance.GnssAlmanac almanac;
+    @nullable android.hardware.gnss.gnss_assistance.KlobucharIonosphericModel ionosphericModel;
+    @nullable android.hardware.gnss.gnss_assistance.UtcModel utcModel;
+    @nullable android.hardware.gnss.gnss_assistance.LeapSecondsModel leapSecondsModel;
     android.hardware.gnss.gnss_assistance.TimeModel[] timeModels;
     android.hardware.gnss.gnss_assistance.BeidouSatelliteEphemeris[] satelliteEphemeris;
     android.hardware.gnss.gnss_assistance.RealTimeIntegrityModel[] realTimeIntegrityModels;
     android.hardware.gnss.gnss_assistance.GnssAssistance.GnssSatelliteCorrections[] satelliteCorrections;
+    /**
+     * @deprecated use auxiliaryInformations
+     */
     android.hardware.gnss.gnss_assistance.AuxiliaryInformation auxiliaryInformation;
+    android.hardware.gnss.gnss_assistance.AuxiliaryInformation[] auxiliaryInformations = {};
   }
 }
