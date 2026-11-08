@@ -262,16 +262,16 @@ int CameraModule::init() {
 
 int CameraModule::getCameraDeviceVersion(int cameraId, uint32_t* version) {
     ATRACE_CALL();
-    int ret;
+#ifndef CAMERA_MODULE_NO_DEVICE_VERSION
     if (getModuleApiVersion() >= CAMERA_MODULE_API_VERSION_2_5 &&
             mModule->get_camera_device_version != NULL) {
-        ret = mModule->get_camera_device_version(cameraId, version);
-    } else {
-        struct camera_info info;
-        ret = getCameraInfo(cameraId, &info);
-        if (ret == OK) {
-            *version = info.device_version;
-        }
+        return mModule->get_camera_device_version(cameraId, version);
+    }
+#endif
+    struct camera_info info;
+    int ret = getCameraInfo(cameraId, &info);
+    if (ret == OK) {
+        *version = info.device_version;
     }
     return ret;
 }
